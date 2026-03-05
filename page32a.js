@@ -19,7 +19,7 @@ let customers = [
   },
 ];
 
-function deposit(id, amount) {
+export function deposit(id, amount) {
   const customer = customers.find((customer) => customer.id === id);
   if (customer) {
     customer.balance += amount;
@@ -38,7 +38,7 @@ function deposit(id, amount) {
   }
 }
 
-function withdraw(id, amount) {
+export function withdraw(id, amount) {
   const customer = customers.find((customer) => customer.id === id);
   if(customer) {
     if(amount > customer.balance) {
@@ -60,12 +60,12 @@ function withdraw(id, amount) {
   }
 }
 
-function checkBalance(id) {
+export function checkBalance(id) {
   const customer = customers.find((customer) => customer.id === id);
   return customer.balance;
 }
 
-function showTranctions(id) {
+export function showTranctions(id) {
   const customer = customers.find((customer) => customer.id === id);
   if(customer) {
     return customer.transactions;
@@ -74,9 +74,3 @@ function showTranctions(id) {
     return "customer not found"
   }
 }
-
-console.log(checkBalance(1))
-console.log(deposit(1, 1000));
-console.table(showTranctions(1));
-console.log(withdraw(1, 500));
-console.table(showTranctions(1));
